@@ -1,0 +1,236 @@
+You are an expert full-stack engineer.  
+Build me a complete web platform called **SkillSphere** — a fusion of freelancing, networking, online learning, portfolio building, competitions, and part-time job modules — using **React (frontend)**, **Node.js + Express (backend)**, and **MongoDB Atlas (database)**.
+
+---
+
+### 🧩 PURPOSE
+
+SkillSphere is an integrated system where users can:
+1. Work on freelance or part-time jobs.
+2. Learn through online courses and earn certificates.
+3. Connect professionally like LinkedIn.
+4. Join competitions and coding challenges.
+5. Build a public portfolio and resume.
+6. Use an admin panel to manage everything.
+
+---
+
+### ⚙️ TECH STACK
+
+**Frontend:**  
+- React + Vite  
+- Tailwind CSS + ShadCN UI + Framer Motion  
+- React Router for navigation  
+- Axios for API requests  
+- Zustand or Context API for state management
+
+**Backend:**  
+- Node.js + Express.js  
+- JWT authentication  
+- bcrypt for password hashing  
+- dotenv for env variables  
+- Mongoose for MongoDB models  
+- CORS + Helmet for security  
+- Nodemailer (optional for verification)
+
+**Database:**  
+- MongoDB Atlas (collections: users, jobs, courses, competitions, portfolios, parttime_jobs, reviews, payments)
+
+---
+
+### 📁 FOLDER STRUCTURE
+
+/skillsphere
+│
+├── /frontend
+│ ├── /src
+│ │ ├── /pages
+│ │ ├── /components
+│ │ ├── /routes
+│ │ ├── /context
+│ │ ├── App.jsx
+│ │ └── main.jsx
+│ ├── package.json
+│ ├── tailwind.config.js
+│ └── index.html
+│
+├── /backend
+│ ├── server.js
+│ ├── /routes
+│ │ ├── auth.js
+│ │ ├── jobs.js
+│ │ ├── courses.js
+│ │ ├── competitions.js
+│ │ ├── portfolio.js
+│ │ └── parttime.js
+│ ├── /models
+│ │ ├── User.js
+│ │ ├── Job.js
+│ │ ├── Course.js
+│ │ ├── Competition.js
+│ │ ├── Portfolio.js
+│ │ └── PartTimeJob.js
+│ ├── /middleware
+│ │ └── authMiddleware.js
+│ ├── .env.example
+│ └── package.json
+│
+└── README.md
+
+yaml
+Copy code
+
+---
+
+### 🔐 AUTHENTICATION MODULE
+
+- `/api/auth/register` – Create new user  
+- `/api/auth/login` – Login and receive JWT token  
+- `/api/auth/me` – Get current user info  
+- Supports roles: `user`, `instructor`, `employer`, `admin`
+
+---
+
+### 💼 FREELANCING HUB
+
+| Endpoint | Method | Description |
+|-----------|---------|-------------|
+| `/api/jobs` | GET | Browse all jobs |
+| `/api/jobs/:id` | GET | Job details |
+| `/api/jobs/create` | POST | Create job |
+| `/api/jobs/apply/:id` | POST | Apply to job |
+| `/api/jobs/myjobs` | GET | User’s posted jobs |
+
+---
+
+### 🌐 PROFESSIONAL NETWORK
+
+- User profile (skills, experience, social links)  
+- Posts (text, image upload with Cloudinary)  
+- Likes, comments, share  
+- Connection requests (follow system)  
+- Direct messages (basic text chat using WebSocket optional)
+
+---
+
+### 🎓 LEARNING PLATFORM
+
+| Feature | Description |
+|----------|-------------|
+| Browse Courses | Public course catalog |
+| Course Page | Video lessons, notes, progress |
+| Quiz System | Auto-graded multiple-choice |
+| Certificates | Issue downloadable PDF certificates |
+| Instructor Dashboard | Add/update/delete courses |
+
+---
+
+### 🏆 COMPETITIONS
+
+- Browse and join competitions  
+- Submit answers or code (text input or file upload)  
+- Live leaderboard (points stored in DB)  
+- Discussion threads for participants  
+
+---
+
+### 🧾 PORTFOLIO BUILDER
+
+- Create personal portfolio  
+- Add projects, skills, certificates  
+- Public share link `/u/username`  
+- Analytics: view count, likes  
+
+---
+
+### 🚴 PART-TIME JOBS MODULE
+
+- Browse local jobs (teaching, delivery, shop work)  
+- Filter by type, pay, and distance (mock location)  
+- Apply to job  
+- Employer dashboard to manage applicants  
+- Reviews and ratings after completion  
+
+---
+
+### ⚙️ ADMIN PANEL
+
+- Manage users, jobs, and reports  
+- View site analytics (dummy data)  
+- Role assignments (promote/demote users)  
+- Remove inappropriate content  
+
+---
+
+### 🧠 FRONTEND PAGES (approx. 30)
+
+Home, About, Pricing, FAQ, Contact
+Login, Register, Forgot Password
+Dashboard (User)
+Freelancing → Browse, Job Detail, Post Job, My Jobs
+Networking → Feed, Profile, Connections, Messages
+Learning → Courses, Course Detail, Quiz, Instructor Panel
+Competitions → All, Detail, Leaderboard, Submit
+Portfolio → My Portfolio, Add Project, Certificates
+Part-Time → Browse Jobs, Post Job, My Applications
+Admin → Dashboard, Users, Jobs, Courses, Reports
+Settings, Notifications
+
+yaml
+Copy code
+
+---
+
+### 🧠 BACKEND ROUTES SUMMARY
+
+/api/auth/*
+/api/jobs/*
+/api/courses/*
+/api/competitions/*
+/api/portfolio/*
+/api/parttime/*
+/api/admin/*
+
+yaml
+Copy code
+
+---
+
+### 🔧 CONFIGURATION
+
+- `.env` example:
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+
+bash
+Copy code
+
+- In `/frontend/package.json` add proxy:
+```json
+"proxy": "http://localhost:5000"
+Scripts:
+
+Frontend → npm run dev
+
+Backend → node server.js
+
+Combined (optional): npm run dev-all using concurrently
+
+✅ EXPECTED OUTPUT
+Generate:
+
+Complete working code (frontend + backend)
+
+Dummy data for jobs, courses, and competitions
+
+Fully responsive pages
+
+All routes functional via Axios
+
+JWT authentication + CRUD APIs connected
+
+Ready to run in Replit with one click
+
+Now generate the entire SkillSphere full-stack app in Replit — including all necessary files, comments, and sample data.
+Make it production-ready, modular, and readable.
