@@ -26,6 +26,11 @@ function authMiddleware(req: AuthRequest, res: Response, next: Function) {
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // health check endpoint for quick liveness checks
+  app.get('/__health', (_req, res) => {
+    res.json({ status: 'ok', time: Date.now() });
+  });
+
   app.post("/api/auth/register", async (req, res) => {
     try {
       const validatedData = insertUserSchema.parse(req.body);
