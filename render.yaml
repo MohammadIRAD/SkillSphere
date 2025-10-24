@@ -1,0 +1,25 @@
+services:
+  # Backend API service
+  - type: web
+    name: skillsphere-api
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+
+  # Frontend static site
+  - type: static
+    name: skillsphere-web
+    buildCommand: npm install && npm run build
+    publishPath: dist/public
+    envVars:
+      - key: VITE_API_URL
+        value: https://skillsphere-api.onrender.com
